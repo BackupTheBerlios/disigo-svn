@@ -1,0 +1,51 @@
+PAGfx Converter, by Mollusk     www.palib.com
+If you have suggestions, problems, or anything, please mail me at mollusk@palib.info
+
+Converting PAGfx.ini
+Transparent Color : Magenta
+
+6 sprites :
+  icon_goban : 256colors, 64x128, Pal : icon_goban_Pal, -> icon_goban_Sprite
+  icon_igs : 256colors, 64x128, Pal : icon_igs_Pal, -> icon_igs_Sprite
+  options : 256colors, 64x64, Pal : pbutton_Pal, -> options_Sprite
+  players : 256colors, 64x64, Pal : pbutton_Pal, -> players_Sprite
+  games : 256colors, 64x64, Pal : pbutton_Pal, -> games_Sprite
+  term : 256colors, 64x64, Pal : pbutton_Pal, -> term_Sprite
+
+9 backgrounds :
+  bgtitre : TileBg, 256x192, Pal : bgtitre_Pal, 654 tiles -> bgtitre_Tiles and bgtitre_Map
+  board19 : TileBg, 256x192, Pal : board19_Pal, 768 tiles -> board19_Tiles and board19_Map
+  bgtitre2 : TileBg, 256x192, Pal : bgtitre2_Pal, 768 tiles -> bgtitre2_Tiles and bgtitre2_Map
+  bgscoreigs : TileBg, 256x192, Pal : bgscoreigs_Pal, 420 tiles -> bgscoreigs_Tiles and bgscoreigs_Map
+  bg01 : TileBg, 256x192, Pal : bg01_Pal, 768 tiles -> bg01_Tiles and bg01_Map
+  bg01term : TileBg, 256x192, Pal : bg01term_Pal, 767 tiles -> bg01term_Tiles and bg01term_Map
+  bgigs : TileBg, 256x192, Pal : bgigs_Pal, 721 tiles -> bgigs_Tiles and bgigs_Map
+  bgterm : TileBg, 256x192, Pal : bgterm_Pal, 7 tiles -> bgterm_Tiles and bgterm_Map
+  keyboardcustom2 : TileBg, 256x1024, Pal : keyboardcustom2_Pal, Converted to LargeMap, 617 tiles -> keyboardcustom2_Tiles and keyboardcustom2_Map
+
+4 textures :
+  pointer : 256colors, 16x16, Pal : pointer_Pal, -> pointer_Texture
+  blackstone : 256colors, 16x48, Pal : stone_Pal, -> blackstone_Texture
+  whitestone : 256colors, 16x48, Pal : stone_Pal, -> whitestone_Texture
+  pass : 256colors, 64x64, Pal : buttons_Pal, -> pass_Texture
+
+15 palettes :
+  icon_goban_Pal, 224 colors
+  icon_igs_Pal, 196 colors
+  pbutton_Pal, 178 colors
+  bgtitre_Pal, 205 colors
+  board19_Pal, 65 colors
+  bgtitre2_Pal, 186 colors
+  bgscoreigs_Pal, 172 colors
+  bg01_Pal, 28 colors
+  bg01term_Pal, 30 colors
+  bgigs_Pal, 134 colors
+  bgterm_Pal, 5 colors
+  keyboardcustom2_Pal, 79 colors
+  pointer_Pal, 2 colors
+  stone_Pal, 123 colors
+  buttons_Pal, 88 colors
+
+Converted in 0 minutes 13 seconds
+
+Finished !
