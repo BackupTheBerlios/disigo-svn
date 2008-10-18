@@ -27,18 +27,25 @@ Term::Term() {
 }
 
   void Term::add(char* s){
-  	if (lastline < 200){
-  	strcpy(lines[lastline],s);  	
-  		lastline ++;
-	}
+  	if (lastline == LINES-1) lastline = 0;
+  	
+  	strcpy(lines[lastline],s);  	 		
+  	lastline ++;
+	
+	
 	draw();
 }
 
 
 void Term::draw(){
 	u8 i = 0;
-	for (i = 0; i < lastline; i++){
-		 PA_16cText(1, 0, i*10, 255, i*10+10, lines[i], 1, 1, 100);	 
+	int nb;
+	PA_16cClearZone(1, 0, 0, 256, 192);
+
+	for (i = 0 ; i < 19; i++){
+		if (lastline-19+i < 0) nb = LINES - 1 + lastline-19+i;
+		else nb = lastline-19+i;
+		 PA_16cText(1, 1, i*10+2, 255, i*10+12, lines[nb], 1, 1, 100);	 
 	 }
 	
 }

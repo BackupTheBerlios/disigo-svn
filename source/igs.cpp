@@ -25,8 +25,8 @@
 
 
 
-#define DIRECT_SEND 0
-//#define DEBUG
+#define DIRECT_SEND 1
+#define DEBUG 1
 
 
 Igs* Igs::first;
@@ -1542,7 +1542,7 @@ void Igs::parse(char* s)
     add_message(p);
 
 #ifdef DEBUG
-  fprintf(upLog, "<%s> %s\n", pr? "*":" ", s);
+ // fprintf(upLog, "<%s> %s\n", pr? "*":" ", s);
 #endif
 }
 
@@ -1613,16 +1613,7 @@ void Igs::read_thread_function()
     create_connection();
 cnx->open(server, port, term);
 
-  int test = 0;
- //test = send((char*)myname);
-   int l = strlen((char*)myname);
-    ALLOCA(p, l+1);
-    memcpy(p, (char*)myname, l);
-    memcpy(p+l, "\n", 1);
-  test =  cnx->write(p, l+1);
-    
- sprintf(message,"Send error %d", test);
- term->add(message);
+  send((char*)myname);    
  
   login_sent = 0;
   connecting = 0;
@@ -1637,6 +1628,7 @@ cnx->open(server, port, term);
     	
       bool incomplete_command = 0;
       int p = cnx->read(ps, 1024-len);
+      term->add(ps);
       if (p == SOCKET_ERROR) 
 			term->add("Receive socket error");
       else term->add(ps);
@@ -1722,6 +1714,7 @@ cnx->open(server, port, term);
 
 void Igs::send(const char* s)
 {
+	char debug[100];
 //  connection_mutex.lock();
   if (!cnx) return;
 #if !DIRECT_SEND
@@ -1754,6 +1747,11 @@ void Igs::send(const char* s)
     memcpy(p, s, l);
     memcpy(p+l, "\n", 1);
     cnx->write(p, l+1);
+    
+#ifdef DEBUG
+    	sprintf(debug,"Send %s", p);
+ 		term->add(debug);
+#endif	
   }
 #endif
   //connection_mutex.unlock();
@@ -1792,7 +1790,8 @@ void* read_thread_function(void* p)
 
 Igs::Igs(const char* user, const char* pass, const char* pserver, int pport, bool qnngs)
 {
-
+int i;
+char message[100];
  // read_thread = 0;
   thread_quit = 0;
   command_ready = 0;
@@ -1857,24 +1856,20 @@ Igs::Igs(const char* user, const char* pass, const char* pserver, int pport, boo
   
 	term = new Term();	
 	
-	
-
   	connecting = 0;
  	cnx = 0;
   
-
 	term->add("WFC initialization");
 
 	PA_InitWifi(); //Initializes the wifi
     PA_ConnectWifiWFC();
 
-
-  
- if (!connect()) {
-    delete this;
-    term->add("Connection failed"); 
+ 
+ 	if (!connect()) {
+    	delete this;
+   		term->add("Connection failed"); 
    
-}
+	}
 
 
 }

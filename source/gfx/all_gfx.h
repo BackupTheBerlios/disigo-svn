@@ -24,6 +24,7 @@ extern const unsigned char options_Sprite[4096] __attribute__ ((aligned (4))) ; 
 extern const unsigned char players_Sprite[4096] __attribute__ ((aligned (4))) ;  // Pal : pbutton_Pal
 extern const unsigned char games_Sprite[4096] __attribute__ ((aligned (4))) ;  // Pal : pbutton_Pal
 extern const unsigned char term_Sprite[4096] __attribute__ ((aligned (4))) ;  // Pal : pbutton_Pal
+extern const unsigned char connect_Sprite[4096] __attribute__ ((aligned (4))) ;  // Pal : pbutton_Pal
 
 // Background files : 
 extern const int bgtitre_Info[3]; // BgMode, Width, Height
@@ -53,7 +54,7 @@ extern PAGfx_struct bg01; // background pointer
 
 extern const int bg01term_Info[3]; // BgMode, Width, Height
 extern const unsigned short bg01term_Map[768] __attribute__ ((aligned (4))) ;  // Pal : bg01term_Pal
-extern const unsigned char bg01term_Tiles[49088] __attribute__ ((aligned (4))) ;  // Pal : bg01term_Pal
+extern const unsigned char bg01term_Tiles[46144] __attribute__ ((aligned (4))) ;  // Pal : bg01term_Pal
 extern PAGfx_struct bg01term; // background pointer
 
 extern const int bgigs_Info[3]; // BgMode, Width, Height
@@ -63,7 +64,7 @@ extern PAGfx_struct bgigs; // background pointer
 
 extern const int bgterm_Info[3]; // BgMode, Width, Height
 extern const unsigned short bgterm_Map[768] __attribute__ ((aligned (4))) ;  // Pal : bgterm_Pal
-extern const unsigned char bgterm_Tiles[448] __attribute__ ((aligned (4))) ;  // Pal : bgterm_Pal
+extern const unsigned char bgterm_Tiles[320] __attribute__ ((aligned (4))) ;  // Pal : bgterm_Pal
 extern PAGfx_struct bgterm; // background pointer
 
 extern const int keyboardcustom2_Info[3]; // BgMode, Width, Height
@@ -81,7 +82,7 @@ extern const unsigned char pass_Texture[4096] __attribute__ ((aligned (4))) ;  /
 // Palette files : 
 extern const unsigned short icon_goban_Pal[224] __attribute__ ((aligned (4))) ;
 extern const unsigned short icon_igs_Pal[196] __attribute__ ((aligned (4))) ;
-extern const unsigned short pbutton_Pal[178] __attribute__ ((aligned (4))) ;
+extern const unsigned short pbutton_Pal[190] __attribute__ ((aligned (4))) ;
 extern const unsigned short bgtitre_Pal[205] __attribute__ ((aligned (4))) ;
 extern const unsigned short board19_Pal[65] __attribute__ ((aligned (4))) ;
 extern const unsigned short bgtitre2_Pal[186] __attribute__ ((aligned (4))) ;

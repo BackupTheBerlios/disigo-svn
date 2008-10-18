@@ -39,6 +39,7 @@ void make_window() {
  	PA_LoadTiledBg(0, 1, bg01);  
  	PA_LoadSpritePal(0, 1, (void*)icon_igs_Pal); 
  	PA_LoadSpritePal(0, 2, (void*)icon_goban_Pal); 
+ 	PA_LoadSpritePal(0, 3, (void*)pbutton_Pal); 
  	
  	PA_SetTextCol(1,0,0,0);
  	
@@ -70,11 +71,11 @@ void make_window() {
 			PA_LoadTiledBg(1, 1, bgigs);  
 			PA_InitCustomKeyboard(0, keyboardcustom2); // Load the keyboard on background 2...
 			PA_KeyboardIn(25, 95); // This scrolls the keyboard from the bottom, until it's at the right position
-			
+			PA_CreateSprite(0, 3, (void*)connect_Sprite, OBJ_SIZE_64X32, 1, 3, 92, 30);
 		//	PA_16cText(1, 105, 98, 255, 108, igs_server, 10, 1, 100);	
 			//PA_16cText(1, 105, 122, 255, 128, igs_server_port, 10, 1, 100);	
 			
-			while (!Pad.Held.Start) {
+			while ((!Pad.Held.Start) & (!PA_SpriteTouched(3))) {
 						
 				letter = PA_CheckKeyboard();	
 						
@@ -108,7 +109,9 @@ void make_window() {
 				PA_16cText(1, 105, 122, 255, 132, igs_server_port, 1, 1, 100);	
 
 				PA_WaitForVBL();
-			}	
+			}
+			PA_SetSpriteAnim(0, 3,  1);
+			PA_WaitForVBL();PA_WaitForVBL();PA_WaitForVBL();
 			new Igs(igs_username, igs_password, igs_server, (int) igs_server_port, 0);	
 			
 		}

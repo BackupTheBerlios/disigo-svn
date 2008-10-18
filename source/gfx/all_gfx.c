@@ -16,6 +16,7 @@ extern "C" {
 #include "players.c"
 #include "games.c"
 #include "term.c"
+#include "connect.c"
 
 // Background files : 
 #include "bgtitre.c"
@@ -57,9 +58,9 @@ PAGfx_struct board19 = {(void*)board19_Map, 768, (void*)board19_Tiles, 49152, (v
 PAGfx_struct bgtitre2 = {(void*)bgtitre2_Map, 768, (void*)bgtitre2_Tiles, 49152, (void*)bgtitre2_Pal, (int*)bgtitre2_Info };
 PAGfx_struct bgscoreigs = {(void*)bgscoreigs_Map, 768, (void*)bgscoreigs_Tiles, 26880, (void*)bgscoreigs_Pal, (int*)bgscoreigs_Info };
 PAGfx_struct bg01 = {(void*)bg01_Map, 768, (void*)bg01_Tiles, 49152, (void*)bg01_Pal, (int*)bg01_Info };
-PAGfx_struct bg01term = {(void*)bg01term_Map, 768, (void*)bg01term_Tiles, 49088, (void*)bg01term_Pal, (int*)bg01term_Info };
+PAGfx_struct bg01term = {(void*)bg01term_Map, 768, (void*)bg01term_Tiles, 46144, (void*)bg01term_Pal, (int*)bg01term_Info };
 PAGfx_struct bgigs = {(void*)bgigs_Map, 768, (void*)bgigs_Tiles, 46144, (void*)bgigs_Pal, (int*)bgigs_Info };
-PAGfx_struct bgterm = {(void*)bgterm_Map, 768, (void*)bgterm_Tiles, 448, (void*)bgterm_Pal, (int*)bgterm_Info };
+PAGfx_struct bgterm = {(void*)bgterm_Map, 768, (void*)bgterm_Tiles, 320, (void*)bgterm_Pal, (int*)bgterm_Info };
 PAGfx_struct keyboardcustom2 = {(void*)keyboardcustom2_Map, 4096, (void*)keyboardcustom2_Tiles, 39488, (void*)keyboardcustom2_Pal, (int*)keyboardcustom2_Info };
 
 

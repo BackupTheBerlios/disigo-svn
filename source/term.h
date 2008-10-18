@@ -13,13 +13,13 @@
 #ifndef TERM_H
 #define TERM_H
 
+#define LINES 200
 
 class Term {
   
   public:
-	char lines[200][100];
+	char lines[LINES][100];
 	int lastline;
-	
 
   
   Term();

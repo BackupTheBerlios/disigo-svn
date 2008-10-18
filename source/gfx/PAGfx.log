@@ -4,13 +4,14 @@ If you have suggestions, problems, or anything, please mail me at mollusk@palib.
 Converting PAGfx.ini
 Transparent Color : Magenta
 
-6 sprites :
+7 sprites :
   icon_goban : 256colors, 64x128, Pal : icon_goban_Pal, -> icon_goban_Sprite
   icon_igs : 256colors, 64x128, Pal : icon_igs_Pal, -> icon_igs_Sprite
   options : 256colors, 64x64, Pal : pbutton_Pal, -> options_Sprite
   players : 256colors, 64x64, Pal : pbutton_Pal, -> players_Sprite
   games : 256colors, 64x64, Pal : pbutton_Pal, -> games_Sprite
   term : 256colors, 64x64, Pal : pbutton_Pal, -> term_Sprite
+  connect : 256colors, 64x64, Pal : pbutton_Pal, -> connect_Sprite
 
 9 backgrounds :
   bgtitre : TileBg, 256x192, Pal : bgtitre_Pal, 654 tiles -> bgtitre_Tiles and bgtitre_Map
@@ -18,9 +19,9 @@ Transparent Color : Magenta
   bgtitre2 : TileBg, 256x192, Pal : bgtitre2_Pal, 768 tiles -> bgtitre2_Tiles and bgtitre2_Map
   bgscoreigs : TileBg, 256x192, Pal : bgscoreigs_Pal, 420 tiles -> bgscoreigs_Tiles and bgscoreigs_Map
   bg01 : TileBg, 256x192, Pal : bg01_Pal, 768 tiles -> bg01_Tiles and bg01_Map
-  bg01term : TileBg, 256x192, Pal : bg01term_Pal, 767 tiles -> bg01term_Tiles and bg01term_Map
+  bg01term : TileBg, 256x192, Pal : bg01term_Pal, 721 tiles -> bg01term_Tiles and bg01term_Map
   bgigs : TileBg, 256x192, Pal : bgigs_Pal, 721 tiles -> bgigs_Tiles and bgigs_Map
-  bgterm : TileBg, 256x192, Pal : bgterm_Pal, 7 tiles -> bgterm_Tiles and bgterm_Map
+  bgterm : TileBg, 256x192, Pal : bgterm_Pal, 5 tiles -> bgterm_Tiles and bgterm_Map
   keyboardcustom2 : TileBg, 256x1024, Pal : keyboardcustom2_Pal, Converted to LargeMap, 617 tiles -> keyboardcustom2_Tiles and keyboardcustom2_Map
 
 4 textures :
@@ -32,7 +33,7 @@ Transparent Color : Magenta
 15 palettes :
   icon_goban_Pal, 224 colors
   icon_igs_Pal, 196 colors
-  pbutton_Pal, 178 colors
+  pbutton_Pal, 190 colors
   bgtitre_Pal, 205 colors
   board19_Pal, 65 colors
   bgtitre2_Pal, 186 colors
@@ -46,6 +47,6 @@ Transparent Color : Magenta
   stone_Pal, 123 colors
   buttons_Pal, 88 colors
 
-Converted in 0 minutes 13 seconds
+Converted in 0 minutes 6 seconds
 
 Finished !
