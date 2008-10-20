@@ -24,9 +24,11 @@ extern "C" {
 #include "bgtitre2.c"
 #include "bgscoreigs.c"
 #include "bg01.c"
-#include "bg01term.c"
 #include "bgigs.c"
-#include "bgterm.c"
+#include "bgterm0.c"
+#include "bgterm1.c"
+#include "bgplayer1.c"
+#include "bgplayer0.c"
 #include "keyboardcustom2.c"
 
 // Sprite files : 
@@ -44,9 +46,11 @@ extern "C" {
 #include "bgtitre2.pal.c"
 #include "bgscoreigs.pal.c"
 #include "bg01.pal.c"
-#include "bg01term.pal.c"
 #include "bgigs.pal.c"
-#include "bgterm.pal.c"
+#include "bgterm0.pal.c"
+#include "bgterm1.pal.c"
+#include "bgplayer1.pal.c"
+#include "bgplayer0.pal.c"
 #include "keyboardcustom2.pal.c"
 #include "pointer.pal.c"
 #include "stone.pal.c"
@@ -58,9 +62,11 @@ PAGfx_struct board19 = {(void*)board19_Map, 768, (void*)board19_Tiles, 49152, (v
 PAGfx_struct bgtitre2 = {(void*)bgtitre2_Map, 768, (void*)bgtitre2_Tiles, 49152, (void*)bgtitre2_Pal, (int*)bgtitre2_Info };
 PAGfx_struct bgscoreigs = {(void*)bgscoreigs_Map, 768, (void*)bgscoreigs_Tiles, 26880, (void*)bgscoreigs_Pal, (int*)bgscoreigs_Info };
 PAGfx_struct bg01 = {(void*)bg01_Map, 768, (void*)bg01_Tiles, 49152, (void*)bg01_Pal, (int*)bg01_Info };
-PAGfx_struct bg01term = {(void*)bg01term_Map, 768, (void*)bg01term_Tiles, 46144, (void*)bg01term_Pal, (int*)bg01term_Info };
 PAGfx_struct bgigs = {(void*)bgigs_Map, 768, (void*)bgigs_Tiles, 46144, (void*)bgigs_Pal, (int*)bgigs_Info };
-PAGfx_struct bgterm = {(void*)bgterm_Map, 768, (void*)bgterm_Tiles, 320, (void*)bgterm_Pal, (int*)bgterm_Info };
+PAGfx_struct bgterm0 = {(void*)bgterm0_Map, 768, (void*)bgterm0_Tiles, 46144, (void*)bgterm0_Pal, (int*)bgterm0_Info };
+PAGfx_struct bgterm1 = {(void*)bgterm1_Map, 768, (void*)bgterm1_Tiles, 320, (void*)bgterm1_Pal, (int*)bgterm1_Info };
+PAGfx_struct bgplayer1 = {(void*)bgplayer1_Map, 768, (void*)bgplayer1_Tiles, 29504, (void*)bgplayer1_Pal, (int*)bgplayer1_Info };
+PAGfx_struct bgplayer0 = {(void*)bgplayer0_Map, 768, (void*)bgplayer0_Tiles, 32000, (void*)bgplayer0_Pal, (int*)bgplayer0_Info };
 PAGfx_struct keyboardcustom2 = {(void*)keyboardcustom2_Map, 4096, (void*)keyboardcustom2_Tiles, 39488, (void*)keyboardcustom2_Pal, (int*)keyboardcustom2_Info };
 
 

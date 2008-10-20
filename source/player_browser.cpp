@@ -1,9 +1,9 @@
 class PlayerBrowser;
 #include "player_browser.h"
-#include <ctype.h>
-#include <string.h>
 #include "stone.h"
 #include "igs.h"
+#include <PA9.h>
+#include "gfx/all_gfx.h"
 
 PlayerBrowser::PlayerBrowser()  
 
@@ -11,6 +11,21 @@ PlayerBrowser::PlayerBrowser()
   cur_player = 0;
   players = 0;
   nbplayers = 0;
+  
+  	
+	PA_ResetSpriteSys();
+	PA_Init16cBg(1, 0);
+	PA_LoadTiledBg(1, 1, bgplayer1);  
+	PA_LoadTiledBg(0, 1, bgplayer0);  
+	PA_LoadSpritePal(0, 1, (void*)pbutton_Pal); 
+
+
+	PA_CreateSprite(0, 10, (void*)term_Sprite, OBJ_SIZE_64X32, 1, 1, 0, 0);  
+	PA_CreateSprite(0, 11, (void*)players_Sprite, OBJ_SIZE_64X32, 1, 1, 64, 0);  
+	PA_CreateSprite(0, 12, (void*)games_Sprite, OBJ_SIZE_64X32, 1, 1, 128, 0);  
+	PA_CreateSprite(0, 13, (void*)options_Sprite, OBJ_SIZE_64X32, 1, 1, 192, 0);  
+
+	PA_SetSpriteAnim(0, 10, 1);
  
 }
 

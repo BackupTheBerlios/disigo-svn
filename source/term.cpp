@@ -7,8 +7,8 @@ Term::Term() {
 	
 	PA_ResetSpriteSys();
 	PA_Init16cBg(1, 0);
-	PA_LoadTiledBg(1, 1, bgterm);  
-	PA_LoadTiledBg(0, 1, bg01term);  
+	PA_LoadTiledBg(1, 1, bgterm1);  
+	PA_LoadTiledBg(0, 1, bgterm0);  
 	PA_LoadSpritePal(0, 1, (void*)pbutton_Pal); 
 	lastline = 0;
 
@@ -17,9 +17,7 @@ Term::Term() {
 	PA_CreateSprite(0, 12, (void*)games_Sprite, OBJ_SIZE_64X32, 1, 1, 128, 0);  
 	PA_CreateSprite(0, 13, (void*)options_Sprite, OBJ_SIZE_64X32, 1, 1, 192, 0);  
 
-	PA_SetSpriteAnim(0, 11, 1);
-	PA_SetSpriteAnim(0, 12, 1);
-	PA_SetSpriteAnim(0, 13, 1);
+	PA_SetSpriteAnim(0, 10, 1);
 	
 	PA_InitCustomKeyboard(0, keyboardcustom2); // Load the keyboard on background 2...
 	PA_KeyboardIn(25, 95); // This scrolls the keyboard from the bottom, until it's at the right position
