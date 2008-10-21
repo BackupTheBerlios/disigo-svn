@@ -33,10 +33,7 @@ IgsPlayer::IgsPlayer(char* n, char* r, Igs* i, IPFlags f)
   stored_size = 0;
 #endif
 
-#ifdef SEBOGO
-  if (!strcmp(name, "Sebogo"))
-    system("xmms /mnt/big3/zig/mp3/chris_isaak_wicked_game-wicked_game.m3u");
-#endif
+
 }
 
 IgsPlayer::~IgsPlayer()

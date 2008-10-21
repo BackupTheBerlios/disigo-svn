@@ -27,6 +27,7 @@ class Term {
   ~Term();
 
   void add(char* s);
+  void drawlines();
   void draw();
   
 };

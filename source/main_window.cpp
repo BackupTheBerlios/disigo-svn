@@ -30,10 +30,13 @@ void make_window() {
 	char igs_server_port[5] = "6969";
 	nletter[3] = 4;
 	
-	u8 i = 0;
+	s8 i = 0;
 	u8 exit = 0;
 	u8 gobanselected = 0;
 	u8 igsselected = 1;
+	
+	PA_SetBrightness(0, -31); // all black
+	PA_SetBrightness(1, -31); // all black	
 	
  	PA_LoadTiledBg(1, 1, bgtitre);  
  	PA_LoadTiledBg(0, 1, bg01);  
@@ -46,6 +49,12 @@ void make_window() {
  	PA_CreateSprite(0, 1, (void*)icon_igs_Sprite, OBJ_SIZE_64X64, 1, 1, 58, 60);  
 	PA_CreateSprite(0, 2, (void*)icon_goban_Sprite, OBJ_SIZE_64X64, 1, 2, 142, 60);
 	PA_SetSpriteAnim(0, 1, 1);
+	
+	for(i = -31; i < 0 ; i++){  //transition
+		PA_SetBrightness(0, i); 
+		PA_SetBrightness(1, i); 
+		PA_WaitForVBL();		   
+	}  	
 	
 	while (!exit) {
 		

@@ -19,6 +19,7 @@
 #include "main_window.h"
 #include "binsert.h"
 #include "proposegame.h"
+#include "player_browser.h"
 //#include "vizigo.h"
 #include "channels.h"
 
@@ -1792,6 +1793,8 @@ Igs::Igs(const char* user, const char* pass, const char* pserver, int pport, boo
 {
 int i;
 char message[100];
+PlayerBrowser* pbrowser;
+
  // read_thread = 0;
   thread_quit = 0;
   command_ready = 0;
@@ -1855,11 +1858,23 @@ char message[100];
   PA_ResetSpriteSys();
   
 	term = new Term();	
+	term->draw();
+	pbrowser = new PlayerBrowser();
 	
   	connecting = 0;
  	cnx = 0;
+ 	
+ 	while(1){
+ 		if (PA_SpriteTouched(11)){
+ 			pbrowser->draw();
+ 		}
+ 		if (PA_SpriteTouched(10)){
+ 			term->draw();
+ 		}
+ 	
+	}
   
-	term->add("WFC initialization");
+	/*term->add("WFC initialization");
 
 	PA_InitWifi(); //Initializes the wifi
     PA_ConnectWifiWFC();
@@ -1869,7 +1884,7 @@ char message[100];
     	delete this;
    		term->add("Connection failed"); 
    
-	}
+	}*/
 
 
 }

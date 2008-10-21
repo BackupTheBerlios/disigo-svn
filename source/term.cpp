@@ -5,6 +5,39 @@
 
 Term::Term() {
 	
+			
+}
+
+  void Term::add(char* s){
+  	if (lastline == LINES-1) lastline = 0;
+  	
+  	strcpy(lines[lastline],s);  	 		
+  	lastline ++;
+	
+	
+	drawlines();
+}
+
+
+void Term::drawlines(){
+	u8 i = 0;
+	int nb;
+	PA_16cClearZone(1, 0, 0, 256, 192);
+
+	for (i = 0 ; i < 19; i++){
+		if (lastline-19+i < 0) nb = LINES - 1 + lastline-19+i;
+		else nb = lastline-19+i;
+		 PA_16cText(1, 1, i*10+2, 255, i*10+12, lines[nb], 1, 1, 100);	 
+	 }
+	
+}
+
+void Term::draw(){
+	s8 i = 0;
+	
+	PA_SetBrightness(0, -31); // all black
+	PA_SetBrightness(1, -31); // all black	
+	
 	PA_ResetSpriteSys();
 	PA_Init16cBg(1, 0);
 	PA_LoadTiledBg(1, 1, bgterm1);  
@@ -21,33 +54,16 @@ Term::Term() {
 	
 	PA_InitCustomKeyboard(0, keyboardcustom2); // Load the keyboard on background 2...
 	PA_KeyboardIn(25, 95); // This scrolls the keyboard from the bottom, until it's at the right position
-			
-}
-
-  void Term::add(char* s){
-  	if (lastline == LINES-1) lastline = 0;
-  	
-  	strcpy(lines[lastline],s);  	 		
-  	lastline ++;
 	
+	for(i = -31; i < 0 ; i++){
+		PA_SetBrightness(0, i); 
+		PA_SetBrightness(1, i); 
+		PA_WaitForVBL();		   
+	}  	
 	
-	draw();
-}
-
-
-void Term::draw(){
-	u8 i = 0;
-	int nb;
-	PA_16cClearZone(1, 0, 0, 256, 192);
-
-	for (i = 0 ; i < 19; i++){
-		if (lastline-19+i < 0) nb = LINES - 1 + lastline-19+i;
-		else nb = lastline-19+i;
-		 PA_16cText(1, 1, i*10+2, 255, i*10+12, lines[nb], 1, 1, 100);	 
-	 }
+	drawlines();
 	
 }
-
 
 
 Term::~Term()

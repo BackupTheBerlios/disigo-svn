@@ -66,7 +66,7 @@ PAGfx_struct bgigs = {(void*)bgigs_Map, 768, (void*)bgigs_Tiles, 46144, (void*)b
 PAGfx_struct bgterm0 = {(void*)bgterm0_Map, 768, (void*)bgterm0_Tiles, 46144, (void*)bgterm0_Pal, (int*)bgterm0_Info };
 PAGfx_struct bgterm1 = {(void*)bgterm1_Map, 768, (void*)bgterm1_Tiles, 320, (void*)bgterm1_Pal, (int*)bgterm1_Info };
 PAGfx_struct bgplayer1 = {(void*)bgplayer1_Map, 768, (void*)bgplayer1_Tiles, 29504, (void*)bgplayer1_Pal, (int*)bgplayer1_Info };
-PAGfx_struct bgplayer0 = {(void*)bgplayer0_Map, 768, (void*)bgplayer0_Tiles, 32000, (void*)bgplayer0_Pal, (int*)bgplayer0_Info };
+PAGfx_struct bgplayer0 = {(void*)bgplayer0_Map, 768, (void*)bgplayer0_Tiles, 29504, (void*)bgplayer0_Pal, (int*)bgplayer0_Info };
 PAGfx_struct keyboardcustom2 = {(void*)keyboardcustom2_Map, 4096, (void*)keyboardcustom2_Tiles, 39488, (void*)keyboardcustom2_Pal, (int*)keyboardcustom2_Info };
 
 

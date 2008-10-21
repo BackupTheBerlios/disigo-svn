@@ -11,23 +11,9 @@ PlayerBrowser::PlayerBrowser()
   cur_player = 0;
   players = 0;
   nbplayers = 0;
-  
-  	
-	PA_ResetSpriteSys();
-	PA_Init16cBg(1, 0);
-	PA_LoadTiledBg(1, 1, bgplayer1);  
-	PA_LoadTiledBg(0, 1, bgplayer0);  
-	PA_LoadSpritePal(0, 1, (void*)pbutton_Pal); 
-
-
-	PA_CreateSprite(0, 10, (void*)term_Sprite, OBJ_SIZE_64X32, 1, 1, 0, 0);  
-	PA_CreateSprite(0, 11, (void*)players_Sprite, OBJ_SIZE_64X32, 1, 1, 64, 0);  
-	PA_CreateSprite(0, 12, (void*)games_Sprite, OBJ_SIZE_64X32, 1, 1, 128, 0);  
-	PA_CreateSprite(0, 13, (void*)options_Sprite, OBJ_SIZE_64X32, 1, 1, 192, 0);  
-
-	PA_SetSpriteAnim(0, 10, 1);
  
 }
+
 
 PlayerBrowser::~PlayerBrowser()
 {
@@ -68,6 +54,42 @@ int cmps_player(const void* pa, const void* pb)
   int d = (b->playing? 0:int(b->flags)&3) - (a->playing? 0:int(a->flags)&3);
   if (d == 0) return rank_compare(a->rank, b->rank);
   else return d;
+}
+
+void PlayerBrowser::draw(){
+	
+	s8 i = 0;
+	
+	PA_SetBrightness(0, -31); // all black
+	PA_SetBrightness(1, -31); // all black	
+  	
+	PA_ResetSpriteSys();
+	PA_Init16cBg(1, 0);
+	PA_Init16cBg(0, 0);
+	PA_LoadTiledBg(1, 1, bgplayer1);  
+	PA_LoadTiledBg(0, 1, bgplayer0);  
+	PA_LoadSpritePal(0, 1, (void*)pbutton_Pal); 
+	PA_KeyboardOut();
+
+	PA_CreateSprite(0, 10, (void*)term_Sprite, OBJ_SIZE_64X32, 1, 1, 0, 0);  
+	PA_CreateSprite(0, 11, (void*)players_Sprite, OBJ_SIZE_64X32, 1, 1, 64, 0);  
+	PA_CreateSprite(0, 12, (void*)games_Sprite, OBJ_SIZE_64X32, 1, 1, 128, 0);  
+	PA_CreateSprite(0, 13, (void*)options_Sprite, OBJ_SIZE_64X32, 1, 1, 192, 0);  
+
+	PA_SetSpriteAnim(0, 11, 1);
+	
+	for(i = -31; i < 0 ; i++){
+		PA_SetBrightness(0, i); 
+		PA_SetBrightness(1, i); 
+		PA_WaitForVBL();		   
+	}  	
+	PA_16cText(0, 6, 85, 80, 95, "NAMEXXXXXX", 1, 1, 100);
+	PA_16cText(0, 88, 85, 127, 95, "[12k*]", 1, 1, 100);
+	PA_16cText(0, 128, 85, 136, 95, "X", 1, 1, 100);
+	
+	PA_16cText(0, 6, 95, 80, 115, "NAMEXXXXXX", 1, 1, 100);
+	PA_16cText(0, 88, 95, 127, 115, "[12k*]", 1, 1, 100);
+	PA_16cText(0, 128, 95, 136, 115, "X", 1, 1, 100);	 
 }
 
 void PlayerBrowser::sort()

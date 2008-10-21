@@ -31,6 +31,7 @@ class PlayerBrowser {
   PlayerBrowser();
   ~PlayerBrowser();
   
+  	void draw();
   void sort();           ///< sort the player list
   void click();          ///< click on player callback
   void select_player(IgsPlayer* p); ///< select a player

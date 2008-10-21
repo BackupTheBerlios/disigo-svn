@@ -74,7 +74,7 @@ extern PAGfx_struct bgplayer1; // background pointer
 
 extern const int bgplayer0_Info[3]; // BgMode, Width, Height
 extern const unsigned short bgplayer0_Map[768] __attribute__ ((aligned (4))) ;  // Pal : bgplayer0_Pal
-extern const unsigned char bgplayer0_Tiles[32000] __attribute__ ((aligned (4))) ;  // Pal : bgplayer0_Pal
+extern const unsigned char bgplayer0_Tiles[29504] __attribute__ ((aligned (4))) ;  // Pal : bgplayer0_Pal
 extern PAGfx_struct bgplayer0; // background pointer
 
 extern const int keyboardcustom2_Info[3]; // BgMode, Width, Height

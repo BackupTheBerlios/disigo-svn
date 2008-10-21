@@ -23,7 +23,7 @@ Transparent Color : Magenta
   bgterm0 : TileBg, 256x192, Pal : bgterm0_Pal, 721 tiles -> bgterm0_Tiles and bgterm0_Map
   bgterm1 : TileBg, 256x192, Pal : bgterm1_Pal, 5 tiles -> bgterm1_Tiles and bgterm1_Map
   bgplayer1 : TileBg, 256x192, Pal : bgplayer1_Pal, 461 tiles -> bgplayer1_Tiles and bgplayer1_Map
-  bgplayer0 : TileBg, 256x192, Pal : bgplayer0_Pal, 500 tiles -> bgplayer0_Tiles and bgplayer0_Map
+  bgplayer0 : TileBg, 256x192, Pal : bgplayer0_Pal, 461 tiles -> bgplayer0_Tiles and bgplayer0_Map
   keyboardcustom2 : TileBg, 256x1024, Pal : keyboardcustom2_Pal, Converted to LargeMap, 617 tiles -> keyboardcustom2_Tiles and keyboardcustom2_Map
 
 4 textures :
@@ -51,6 +51,6 @@ Transparent Color : Magenta
   stone_Pal, 123 colors
   buttons_Pal, 88 colors
 
-Converted in 0 minutes 14 seconds
+Converted in 0 minutes 20 seconds
 
 Finished !
