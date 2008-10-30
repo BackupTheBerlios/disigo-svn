@@ -28,7 +28,7 @@
 
 #define DIRECT_SEND 1
 #define DEBUG 1
-
+#define WIFI 1 //to test on NO$GBA
 
 Igs* Igs::first;
 Igs* cur_igs;
@@ -1598,6 +1598,97 @@ void Igs::read_callback()
   }*/
 }
 
+void Igs::read_VBL_function()
+{
+ char message [50] = "";
+ /*create_connection();
+  while (!cnx->open(server, port, term)) {
+    /*if (!fl_choice ("Connection failed !", "Cancel", "Retry", 0)) {
+      destroy_connection();
+   //   read_thread = 0;
+      connecting = 0;
+      return;
+    }
+  }*/
+  
+  
+  login_sent = 0;
+  connecting = 0;
+  
+term->add("Receive socket error");
+
+ /* char* s = new char[1024];
+
+    char* ps = s;
+    int len = 0;
+    do {
+    	
+      bool incomplete_command = 0;
+      int p = cnx->read(ps, 1024-len);
+      term->add(ps);
+      if (p == SOCKET_ERROR) 
+			term->add("Receive socket error");
+      else term->add(ps);
+      if (p+len == 1024) incomplete_command = 1;
+      if (p <= 0 || thread_quit) {
+        delete[] s;
+		destroy_connection();
+		//	read_thread = 0;
+		thread_quit = 0;
+		return; // There was a connection error !
+      }
+      len += p;
+      while (ps<s+len) {
+		while (*ps != '\n' && ps<s+len) {
+	  		if (*ps == 13) {
+	    	memmove(ps, ps+1, len-(ps-s)-1);
+	   		 len--;
+	 		} else
+	    		ps++;
+			}
+			if (ps == s+1024) {
+	 		 term->add("DEBUG : Reading buffer overflow !!");
+			 break;
+			}
+			if (ps == s+len) {
+	 		 //	  incomplete_command = 1;
+	 		 break;
+			}
+			
+			*ps = 0;
+			ps++;
+			//	read_command_mutex.lock();
+			while (nb_read_commands > 200) {
+				//  read_command_mutex.unlock();
+				term->add("reading thread sleeping for 1 second because of command buffer full !\nis the GUI blocked ?");
+	 		 	//sleep(1);
+	 		 	PA_WaitForVBL();PA_WaitForVBL();PA_WaitForVBL();PA_WaitForVBL();
+				//  read_command_mutex.lock();
+			}
+			IgsCommand* nc = new IgsCommand, *f = read_commands;
+			nc->m = strdup(s);
+			nc->next = 0;
+			if (f) {
+	  			while (f->next) 
+	    			f = f->next;
+	  				f->next = nc;
+			} else
+	  		read_commands = nc;
+			nb_read_commands++;
+			//      Fl::awake(this);
+			//	read_command_mutex.unlock();
+			len -= ps-s;
+			memmove(s, ps, len);
+			ps = s;
+     	}
+
+    } while (ps<s+1024);
+  */
+
+}
+
+
+
 void Igs::read_thread_function()
 {
  char message [50] = "";
@@ -1749,7 +1840,7 @@ void Igs::send(const char* s)
     memcpy(p+l, "\n", 1);
     cnx->write(p, l+1);
     
-#ifdef DEBUG
+#if DEBUG
     	sprintf(debug,"Send %s", p);
  		term->add(debug);
 #endif	
@@ -1783,6 +1874,11 @@ void read_callback(int s, void* p)
   ((Igs*)p)->read_callback();
 }
 
+void read_function()
+{
+  ((Igs*)p)->read_VBL_function();
+}
+
 void* read_thread_function(void* p)
 {
   ((Igs*)p)->read_thread_function();
@@ -1794,7 +1890,9 @@ Igs::Igs(const char* user, const char* pass, const char* pserver, int pport, boo
 int i;
 char message[100];
 PlayerBrowser* pbrowser;
-
+char letter = ' '; // New letter to write.
+s32 nletter = 0; // Next letter to right. 0 since no letters are there yet
+	
  // read_thread = 0;
   thread_quit = 0;
   command_ready = 0;
@@ -1859,32 +1957,82 @@ PlayerBrowser* pbrowser;
   
 	term = new Term();	
 	term->draw();
+	screen = TERM_SCREEN;
 	pbrowser = new PlayerBrowser();
 	
   	connecting = 0;
  	cnx = 0;
  	
- 	while(1){
- 		if (PA_SpriteTouched(11)){
- 			pbrowser->draw();
- 		}
- 		if (PA_SpriteTouched(10)){
- 			term->draw();
- 		}
- 	
-	}
-  
-	/*term->add("WFC initialization");
+ 	#if WIFI
+ 	term->add("WFC initialization");
 
 	PA_InitWifi(); //Initializes the wifi
     PA_ConnectWifiWFC();
-
  
  	if (!connect()) {
     	delete this;
    		term->add("Connection failed"); 
    
-	}*/
+	}
+	#endif
+	
+	
+  
+  
+ 	while(1){
+ 		
+		
+		if (screen == TERM_SCREEN){
+			
+		if ((PA_SpriteTouched(PLAYERS_SCREEN)) & !(screen == PLAYERS_SCREEN)){
+ 			pbrowser->draw();
+ 			screen = PLAYERS_SCREEN;
+ 			PA_WaitForVBL();
+ 		}
+ 		
+ 		
+						
+				letter = PA_CheckKeyboard();	
+						
+				if ((letter > 31) & (nletter < 100)) { // there is a new letter
+					message[nletter] = letter;
+					nletter++;
+				}
+			
+				else if ((letter == PA_BACKSPACE)&&nletter) { // Backspace pressed
+					nletter--;
+					message[nletter] = ' '; // Erase the last letter
+				}
+				else if (letter == '\n'){ // Enter pressed
+					nletter++;	
+					#ifdef WIFI
+						send(message);	
+					#endif
+					letter = ' ';
+					nletter = 0;
+					 memset(message, EMPTY, 100);
+					PA_16cClearZone(0, 25, 55, 230, 75);	
+				}
+				
+				PA_16cClearZone(0, 25, 55, 230, 75);
+				PA_16cText(0, 28, 60, 230, 80, (char *) message, 1, 1, 100);	
+	
+				PA_WaitForVBL();
+			
+	
+ 		}
+ 		
+ 		if (screen == PLAYERS_SCREEN){
+ 			if (PA_SpriteTouched(TERM_SCREEN)){
+ 			term->draw();
+ 			screen = TERM_SCREEN;
+ 			PA_WaitForVBL();
+		}
+	}
+ 		
+ 	
+  }
+
 
 
 }
@@ -1905,14 +2053,13 @@ bool Igs::connect()
 
   //  connecting = 0;
 
- 
+   create_connection();
+	cnx->open(server, port, term);
 
-while (1){
-	read_thread_function();
-		//read_callback();
-			PA_WaitForVBL();
-		
-}
+  	send((char*)myname);    
+ 
+	//PA_VBLFunctionInit(read_function);
+
 
  // fl_create_thread(read_thread, ::read_thread_function, this);
 

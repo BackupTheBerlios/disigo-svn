@@ -59,7 +59,7 @@ extern PAGfx_struct bgigs; // background pointer
 
 extern const int bgterm0_Info[3]; // BgMode, Width, Height
 extern const unsigned short bgterm0_Map[768] __attribute__ ((aligned (4))) ;  // Pal : bgterm0_Pal
-extern const unsigned char bgterm0_Tiles[46144] __attribute__ ((aligned (4))) ;  // Pal : bgterm0_Pal
+extern const unsigned char bgterm0_Tiles[256] __attribute__ ((aligned (4))) ;  // Pal : bgterm0_Pal
 extern PAGfx_struct bgterm0; // background pointer
 
 extern const int bgterm1_Info[3]; // BgMode, Width, Height
@@ -99,7 +99,7 @@ extern const unsigned short bgtitre2_Pal[186] __attribute__ ((aligned (4))) ;
 extern const unsigned short bgscoreigs_Pal[172] __attribute__ ((aligned (4))) ;
 extern const unsigned short bg01_Pal[28] __attribute__ ((aligned (4))) ;
 extern const unsigned short bgigs_Pal[134] __attribute__ ((aligned (4))) ;
-extern const unsigned short bgterm0_Pal[30] __attribute__ ((aligned (4))) ;
+extern const unsigned short bgterm0_Pal[4] __attribute__ ((aligned (4))) ;
 extern const unsigned short bgterm1_Pal[6] __attribute__ ((aligned (4))) ;
 extern const unsigned short bgplayer1_Pal[157] __attribute__ ((aligned (4))) ;
 extern const unsigned short bgplayer0_Pal[53] __attribute__ ((aligned (4))) ;

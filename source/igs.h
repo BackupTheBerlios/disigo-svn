@@ -16,6 +16,12 @@
 #define MAX_IGSGAMES 1000
 #define MAX_CHANNELS 100
 
+// Screen visible and screen button number
+#define PLAYERS_SCREEN 11
+#define GAMES_SCREEN 12
+#define TERM_SCREEN 10
+#define OPTIONS_SCREEN 13
+
 #include "defs.h"
 #include "connection.h"
 #include "talk.h"
@@ -67,6 +73,7 @@ class Igs {
   static Igs* first;
   Igs* next;
 
+	int screen; ///< visible screen
 	Term* term;
  // FlIgs* UI;                     ///< the FLTK user interface
   IgsGame* games[MAX_IGSGAMES];  ///< list of all known games
@@ -110,6 +117,7 @@ class Igs {
   void read_callback();         ///< function called when some characters
                                 ///< are received from igs (main thread)
   void read_thread_function();  ///< basic reading thread
+  void read_VBL_function();  ///< basic reading thread
   void send(const char* s);     ///< send a message to igs, or put it in the 
                                 ///< queue if igs is not ready
   void add_message(const char* m);///< display a message in the main terminal

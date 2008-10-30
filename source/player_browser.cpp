@@ -71,10 +71,10 @@ void PlayerBrowser::draw(){
 	PA_LoadSpritePal(0, 1, (void*)pbutton_Pal); 
 	PA_KeyboardOut();
 
-	PA_CreateSprite(0, 10, (void*)term_Sprite, OBJ_SIZE_64X32, 1, 1, 0, 0);  
-	PA_CreateSprite(0, 11, (void*)players_Sprite, OBJ_SIZE_64X32, 1, 1, 64, 0);  
-	PA_CreateSprite(0, 12, (void*)games_Sprite, OBJ_SIZE_64X32, 1, 1, 128, 0);  
-	PA_CreateSprite(0, 13, (void*)options_Sprite, OBJ_SIZE_64X32, 1, 1, 192, 0);  
+	PA_CreateSprite(0, TERM_SCREEN, (void*)term_Sprite, OBJ_SIZE_64X32, 1, 1, 0, 0);  
+	PA_CreateSprite(0, PLAYERS_SCREEN, (void*)players_Sprite, OBJ_SIZE_64X32, 1, 1, 64, 0);  
+	PA_CreateSprite(0, GAMES_SCREEN, (void*)games_Sprite, OBJ_SIZE_64X32, 1, 1, 128, 0);  
+	PA_CreateSprite(0, OPTIONS_SCREEN, (void*)options_Sprite, OBJ_SIZE_64X32, 1, 1, 192, 0);  
 
 	PA_SetSpriteAnim(0, 11, 1);
 	

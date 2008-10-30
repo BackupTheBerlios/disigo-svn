@@ -20,7 +20,7 @@ Transparent Color : Magenta
   bgscoreigs : TileBg, 256x192, Pal : bgscoreigs_Pal, 420 tiles -> bgscoreigs_Tiles and bgscoreigs_Map
   bg01 : TileBg, 256x192, Pal : bg01_Pal, 768 tiles -> bg01_Tiles and bg01_Map
   bgigs : TileBg, 256x192, Pal : bgigs_Pal, 721 tiles -> bgigs_Tiles and bgigs_Map
-  bgterm0 : TileBg, 256x192, Pal : bgterm0_Pal, 721 tiles -> bgterm0_Tiles and bgterm0_Map
+  bgterm0 : TileBg, 256x192, Pal : bgterm0_Pal, 4 tiles -> bgterm0_Tiles and bgterm0_Map
   bgterm1 : TileBg, 256x192, Pal : bgterm1_Pal, 5 tiles -> bgterm1_Tiles and bgterm1_Map
   bgplayer1 : TileBg, 256x192, Pal : bgplayer1_Pal, 461 tiles -> bgplayer1_Tiles and bgplayer1_Map
   bgplayer0 : TileBg, 256x192, Pal : bgplayer0_Pal, 461 tiles -> bgplayer0_Tiles and bgplayer0_Map
@@ -42,7 +42,7 @@ Transparent Color : Magenta
   bgscoreigs_Pal, 172 colors
   bg01_Pal, 28 colors
   bgigs_Pal, 134 colors
-  bgterm0_Pal, 30 colors
+  bgterm0_Pal, 4 colors
   bgterm1_Pal, 6 colors
   bgplayer1_Pal, 157 colors
   bgplayer0_Pal, 53 colors
@@ -51,6 +51,6 @@ Transparent Color : Magenta
   stone_Pal, 123 colors
   buttons_Pal, 88 colors
 
-Converted in 0 minutes 20 seconds
+Converted in 0 minutes 8 seconds
 
 Finished !

@@ -81,7 +81,7 @@ bool Connection::open( char*s, int p, Term* t)
     return 0;
   }
   
-   // set_nonblock_flag(sock, 0);
+    //set_nonblock_flag(sock, 0);
 	ioctl(sock,FIONBIO,&nbMode); 
 
   if (!init_sockaddr (&name, s, p, t)) {
@@ -101,7 +101,6 @@ bool Connection::open( char*s, int p, Term* t)
     return 0;
   }
 
-ioctl(sock,FIONBIO,&bMode); 
   fdin = sock;
   fdout = sock;
   t->add("Connection succeed");
